@@ -1,39 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useFetchGifs } from '../hooks/useFetchGifs'
+
 import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({ category }) => {
-    const [images, setImages] = useState([])
+
+    const { data:images, loading } = useFetchGifs(category);
 
 
-    useEffect(() => {
-        getGifs();
-
-    }, [])
+    /*     useEffect(() => {
+           getGifs(category)
+           .then(imgs=>setImages(imgs))
+    
+        },[category]) */
     // el segundo argumento de use efect [] quiere decir que se carga solo la primera vez, que el componente se reenderiza
-    const getGifs = async () => {
-        const url = `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&limit=10&api_key=sZQ3ox6LpfcHxyAlmfSdpqUdgKQEnjRQ`
-        const resp = await fetch(url);
-        const { data } = await resp.json();
-
-        const gifs = data.map(img => {
-            return {
-                id: img.id,
-                title: img.title,
-                url: img.images?.downsized_medium.url
-
-            }
 
 
-        })
+    /*         const items=gifs.map(item=>{
+            return <li key={item.id}>{item.title}</li>
+            })
+            setImages(items) */
 
-        setImages(gifs)
-
-        /*         const items=gifs.map(item=>{
-                return <li key={item.id}>{item.title}</li>
-                })
-                setImages(items) */
-
-    }
     //getGifs()
 
 
@@ -41,6 +28,7 @@ export const GifGrid = ({ category }) => {
     return (
         <>
             <h3>{category}</h3>
+            {loading && <p>loading</p>}
             <div className="card-grid">
                 <ol>
                     {/* {images} */}

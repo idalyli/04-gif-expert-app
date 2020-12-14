@@ -13,7 +13,7 @@ input{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
+ 
 }
 .card{
   align-content: center;
