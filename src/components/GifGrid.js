@@ -5,33 +5,15 @@ import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({ category }) => {
 
-    const { data:images, loading } = useFetchGifs(category);
-
-
-    /*     useEffect(() => {
-           getGifs(category)
-           .then(imgs=>setImages(imgs))
-    
-        },[category]) */
-    // el segundo argumento de use efect [] quiere decir que se carga solo la primera vez, que el componente se reenderiza
-
-
-    /*         const items=gifs.map(item=>{
-            return <li key={item.id}>{item.title}</li>
-            })
-            setImages(items) */
-
-    //getGifs()
-
+    const { data: images, loading } = useFetchGifs(category);
 
 
     return (
         <>
             <h3>{category}</h3>
-            {loading && <p>loading</p>}
+            {loading && <p className="animate__animated animate__flash">loading</p>}
             <div className="card-grid">
                 <ol>
-                    {/* {images} */}
 
                     {
 
