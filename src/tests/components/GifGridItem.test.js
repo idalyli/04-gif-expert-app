@@ -9,8 +9,9 @@ describe('Pruebas GifGridItem', () => {
 
     test('Debe mostrar <GifGridItemp correctamente /> ', () => {
         //const [categories, setCategories] = useState(['One Punch'])
-        
-        const wrapper= shallow(<GifGridItem />)
+        const title="Un titulo";
+        const url="https://localhost/algo.com"
+        const wrapper= shallow(<GifGridItem url={url} title={title} />)
         expect(wrapper).toMatchSnapshot();
     })
 
