@@ -5,11 +5,11 @@ exports[`Pruebas GifGridItem Debe mostrar <GifGridItemp correctamente />  1`] = 
   className="card animate__animated animate__bounce"
 >
   <img
-    alt="Un titulo"
-    src="https://localhost/algo.com"
+    alt="One Pun"
+    src="https://localhost/algo.com.co"
   />
   <p>
-    Un titulo
+    One Pun
   </p>
 </div>
 `;
